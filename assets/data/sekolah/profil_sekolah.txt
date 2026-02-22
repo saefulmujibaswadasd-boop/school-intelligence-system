@@ -1,0 +1,1 @@
+NPSN;satuan_pendidikan;alamat_sekolah
