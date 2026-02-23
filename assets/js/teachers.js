@@ -7,31 +7,36 @@ document.addEventListener("DOMContentLoaded", () => {
       const rows = data.split("\n").map(r => r.split(","));
       const header = rows[0];
 
-      let html = `
-        <tr>
-          <th>Foto</th>
-          ${header.map(h => `<th>${h}</th>`).join("")}
-        </tr>
-      `;
+      const tbody = document.querySelector("#teachersTable tbody");
 
       rows.slice(1).forEach(row => {
 
-        const teacherId = row[0];
-        const foto = `../assets/img/guru/${teacherId}.jpg`;
+        if (!row.length || row[0] === "") return;
 
-        html += `
-          <tr>
-            <td>
-              <img src="${foto}" class="avatar-guru"
-              onerror="this.src='../assets/img/ui/default-avatar.png'">
-            </td>
-            ${row.map(col => `<td>${col}</td>`).join("")}
-          </tr>
+        const guru = {};
+        header.forEach((h, i) => {
+          guru[h.trim()] = row[i];
+        });
+
+        if (guru.status_aktif !== "Aktif") return;
+
+        const tr = document.createElement("tr");
+
+        tr.innerHTML = `
+          <td>${guru.nama}</td>
+          <td>${guru.jabatan}</td>
+          <td>${guru.kelas_diampu || "-"}</td>
+          <td>${guru.status_aktif}</td>
+          <td>${guru.pendidikan}</td>
         `;
+
+        tbody.appendChild(tr);
+
       });
 
-      document.getElementById("teachersTable").innerHTML = html;
-
+    })
+    .catch(err => {
+      console.error("Gagal memuat data guru:", err);
     });
 
 });
