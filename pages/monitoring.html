@@ -2,46 +2,56 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Monitoring - SIS 2026</title>
   <link rel="stylesheet" href="../assets/css/style.css">
 </head>
+
 <body>
 
 <header>
-  <h1>📊 Monitoring Dashboard</h1>
+  <h1>📈 Monitoring & Analitik</h1>
+  <p>School Intelligence System 2026</p>
 </header>
 
-<main class="dashboard">
+<nav>
+  <a href="../index.html">Dashboard</a>
+  <a href="profil.html">Profil</a>
+  <a href="teachers.html">Guru</a>
+  <a href="students.html">Siswa</a>
+  <a href="supervisi.html">Supervisi</a>
+</nav>
 
-  <div class="card">
-    <h3>Total Guru</h3>
-    <p id="totalGuru">-</p>
-  </div>
+<main>
 
-  <div class="card">
-    <h3>Total Siswa</h3>
-    <p id="totalSiswa">-</p>
-  </div>
+  <div class="dashboard-grid">
 
-  <div class="card">
-    <h3>Total Supervisi</h3>
-    <p id="totalSupervisi">-</p>
-  </div>
+    <div class="card">
+      <h2>Total Guru Aktif</h2>
+      <p id="totalGuru" class="big-number">0</p>
+    </div>
 
-  <div class="card">
-    <h3>Rata-rata Skor</h3>
-    <p id="rataSkor">-</p>
-  </div>
+    <div class="card">
+      <h2>Total Siswa Aktif</h2>
+      <p id="totalSiswa" class="big-number">0</p>
+    </div>
 
-  <div class="card full">
-    <h3>Kategori Mutu Sekolah</h3>
-    <p id="kategoriMutu">-</p>
+    <div class="card">
+      <h2>Rata-rata Supervisi</h2>
+      <p id="rataSupervisi" class="big-number">0</p>
+    </div>
+
+    <div class="card">
+      <h2>Kategori Terbanyak</h2>
+      <p id="kategoriDominan" class="big-number">-</p>
+    </div>
+
   </div>
 
 </main>
 
 <footer>
-  © 2026 SD Negeri Wonokerto
+  © 2026 SD Negeri Wonokerto — SIS 2026
 </footer>
 
 <script src="../assets/js/config.js"></script>
