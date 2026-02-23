@@ -1,50 +1,79 @@
-async function fetchCSV(url) {
-  const response = await fetch(url);
-  const data = await response.text();
-  return data.split("\n").slice(1);
-}
+document.addEventListener("DOMContentLoaded", () => {
 
-function hitungKategori(rata) {
-  if (rata >= 4.5) return "Sangat Unggul";
-  if (rata >= 3.5) return "Baik";
-  if (rata >= 2.5) return "Cukup";
-  return "Perlu Pembinaan";
-}
+  // ===== HITUNG GURU =====
+  fetch(CONFIG.TEACHERS.URL)
+    .then(res => res.text())
+    .then(data => {
+      const rows = data.split("\n").map(r => r.split(","));
+      const header = rows[0];
+      let total = 0;
 
-async function loadMonitoring() {
-  try {
+      rows.slice(1).forEach(row => {
+        const obj = {};
+        header.forEach((h, i) => obj[h.trim()] = row[i]);
 
-    // Teachers
-    const guruData = await fetchCSV(CONFIG.TEACHERS.URL);
-    const totalGuru = guruData.filter(r => r.trim() !== "").length;
-    document.getElementById("totalGuru").innerText = totalGuru;
+        if (obj.status_aktif === "Aktif") total++;
+      });
 
-    // Students
-    const siswaData = await fetchCSV(CONFIG.STUDENTS.URL);
-    const totalSiswa = siswaData.filter(r => r.trim() !== "").length;
-    document.getElementById("totalSiswa").innerText = totalSiswa;
-
-    // Supervisi
-    const supervisiData = await fetchCSV(CONFIG.SUPERVISI.URL_OBSERVASI);
-    const rows = supervisiData.filter(r => r.trim() !== "");
-
-    document.getElementById("totalSupervisi").innerText = rows.length;
-
-    let totalSkor = 0;
-    rows.forEach(row => {
-      const cols = row.split(",");
-      const skor = parseFloat(cols[10]); // skor_rerata (sesuaikan jika beda posisi)
-      if (!isNaN(skor)) totalSkor += skor;
+      document.getElementById("totalGuru").textContent = total;
     });
 
-    const rata = rows.length ? (totalSkor / rows.length).toFixed(2) : 0;
+  // ===== HITUNG SISWA =====
+  fetch(CONFIG.STUDENTS.URL)
+    .then(res => res.text())
+    .then(data => {
+      const rows = data.split("\n").map(r => r.split(","));
+      const header = rows[0];
+      let total = 0;
 
-    document.getElementById("rataSkor").innerText = rata;
-    document.getElementById("kategoriMutu").innerText = hitungKategori(rata);
+      rows.slice(1).forEach(row => {
+        const obj = {};
+        header.forEach((h, i) => obj[h.trim()] = row[i]);
 
-  } catch (error) {
-    console.error("Monitoring error:", error);
-  }
-}
+        if (obj.status_aktif === "Aktif") total++;
+      });
 
-loadMonitoring();
+      document.getElementById("totalSiswa").textContent = total;
+    });
+
+  // ===== ANALISIS SUPERVISI =====
+  fetch(CONFIG.SUPERVISI.URL_OBSERVASI)
+    .then(res => res.text())
+    .then(data => {
+      const rows = data.split("\n").map(r => r.split(","));
+      const header = rows[0];
+
+      let totalSkor = 0;
+      let jumlah = 0;
+      let kategoriCount = {};
+
+      rows.slice(1).forEach(row => {
+        const obj = {};
+        header.forEach((h, i) => obj[h.trim()] = row[i]);
+
+        if (obj.assessor_role !== "kepala") return;
+
+        totalSkor += parseFloat(obj.skor_rerata || 0);
+        jumlah++;
+
+        kategoriCount[obj.kategori] =
+          (kategoriCount[obj.kategori] || 0) + 1;
+      });
+
+      const rata = jumlah ? (totalSkor / jumlah).toFixed(2) : 0;
+      document.getElementById("rataSupervisi").textContent = rata;
+
+      let dominan = "-";
+      let max = 0;
+
+      for (let k in kategoriCount) {
+        if (kategoriCount[k] > max) {
+          max = kategoriCount[k];
+          dominan = k;
+        }
+      }
+
+      document.getElementById("kategoriDominan").textContent = dominan;
+    });
+
+});
