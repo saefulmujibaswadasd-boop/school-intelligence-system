@@ -1,13 +1,52 @@
-<h2>Supervisi Observasi Kelas</h2>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Supervisi - SIS 2026</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
 
-<div id="indikatorContainer"></div>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="logo">
+      <img src="../assets/img/logo_sekolah.png">
+      <h2>SIS 2026</h2>
+    </div>
+    <nav>
+      <a href="../index.html">Dashboard</a>
+      <a href="profil.html">Profil</a>
+      <a href="teachers.html">Guru</a>
+      <a href="students.html">Siswa</a>
+      <a href="supervisi.html" class="active">Supervisi</a>
+      <a href="monitoring.html">Monitoring</a>
+    </nav>
+  </aside>
 
-<p>Total Skor: <span id="skorTotal"></span></p>
-<p>Rerata: <span id="skorRerata"></span></p>
+  <div class="main">
+    <header class="topbar">
+      <h1>Supervisi Observasi Kelas</h1>
+    </header>
 
-<h3>Catatan Kepala Sekolah</h3>
-<p id="catatan"></p>
+    <main class="content">
+      <div class="card">
+        <div id="indikatorContainer"></div>
+
+        <p>Total Skor: <span id="skorTotal"></span></p>
+        <p>Rerata: <span id="skorRerata"></span></p>
+
+        <h3>Catatan Kepala Sekolah</h3>
+        <p id="catatan"></p>
+      </div>
+    </main>
+
+    <footer>© 2026 SD Negeri Wonokerto</footer>
+  </div>
+</div>
 
 <script src="../assets/js/config.js"></script>
 <script src="../assets/js/generator.js"></script>
 <script src="../assets/js/supervisi.js"></script>
+
+</body>
+</html>
