@@ -2,88 +2,80 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SIS 2026 - SD Negeri Wonokerto</title>
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
 
-<div class="layout">
+  <!-- HEADER -->
+  <header>
+    <h1>🏫 School Intelligence System 2026</h1>
+    <p>Platform Transformasi Digital SD Negeri Wonokerto</p>
+  </header>
 
-  <!-- SIDEBAR -->
-  <aside class="sidebar">
-    <div class="logo">
-      <img src="assets/img/logo_sekolah.png" alt="Logo">
-      <h2>SIS 2026</h2>
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="pages/profil.html">Profil Sekolah</a>
+    <a href="pages/teachers.html">Data Guru</a>
+    <a href="pages/students.html">Data Siswa</a>
+    <a href="pages/supervisi.html">e-Supervisi</a>
+    <a href="pages/monitoring.html">Monitoring</a>
+  </nav>
+
+  <!-- MAIN -->
+  <main>
+
+    <div class="dashboard-grid">
+
+      <div class="card">
+        <h2>🎯 Visi Sistem</h2>
+        <p>
+          Sistem manajemen sekolah berbasis Data Driven, 
+          Deep Rule-Based Analytics, dan School Quality Intelligence 
+          untuk mendukung transformasi digital pendidikan dasar.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>🧠 Arsitektur Digital</h2>
+        <ul>
+          <li>Frontend: HTML, CSS, JavaScript Modular</li>
+          <li>Hosting: GitHub Pages (Gratis)</li>
+          <li>Database: Google Sheets</li>
+          <li>Storage: Google Drive</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>🚀 Roadmap Pengembangan</h2>
+        <ul>
+          <li>Phase 1: Setup Website</li>
+          <li>Phase 2: Modul e-Supervisi</li>
+          <li>Phase 3: Teacher Performance Center</li>
+          <li>Phase 4: School Quality Intelligence</li>
+          <li>Phase 5: AI Engine Center</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>🔐 Status Sistem</h2>
+        <p>
+          Struktur Database FINAL PERMANEN SIS 2026 telah dikunci.
+          Sistem siap dikembangkan untuk internal sekolah dan
+          berpotensi menjadi percontohan tingkat kabupaten.
+        </p>
+      </div>
+
     </div>
 
-    <nav>
-      <a href="index.html" class="active">Dashboard</a>
-      <a href="pages/profil.html">Profil</a>
-      <a href="pages/teachers.html">Guru</a>
-      <a href="pages/students.html">Siswa</a>
-      <a href="pages/supervisi.html">Supervisi</a>
-      <a href="pages/monitoring.html">Monitoring</a>
-    </nav>
-  </aside>
+  </main>
 
-  <!-- MAIN AREA -->
-  <div class="main">
-
-    <!-- TOPBAR -->
-    <header class="topbar">
-      <h1>School Intelligence System</h1>
-      <div class="user-info">
-        SD Negeri Wonokerto
-      </div>
-    </header>
-
-    <!-- DASHBOARD CONTENT -->
-    <main class="content">
-
-      <div class="dashboard-cards">
-        <div class="card">
-          <h3>Total Guru</h3>
-          <p id="totalGuru">--</p>
-        </div>
-
-        <div class="card">
-          <h3>Total Siswa</h3>
-          <p id="totalSiswa">--</p>
-        </div>
-
-        <div class="card">
-          <h3>Supervisi Semester</h3>
-          <p>Aktif</p>
-        </div>
-
-        <div class="card">
-          <h3>Status Sistem</h3>
-          <p>Online</p>
-        </div>
-      </div>
-
-      <section class="roadmap">
-        <h2>🚀 Roadmap Pengembangan</h2>
-        <div class="timeline">
-          <div class="step">Phase 1<br>Setup Website</div>
-          <div class="step">Phase 2<br>e-Supervisi</div>
-          <div class="step">Phase 3<br>Performance Center</div>
-          <div class="step">Phase 4<br>Quality Intelligence</div>
-          <div class="step">Phase 5<br>AI Engine</div>
-        </div>
-      </section>
-
-    </main>
-
-    <footer>
-      © 2026 SD Negeri Wonokerto
-    </footer>
-
-  </div>
-</div>
-
-<script src="assets/js/config.js"></script>
-<script src="assets/js/monitoring.js"></script>
+  <!-- FOOTER -->
+  <footer>
+    © 2026 SD Negeri Wonokerto — School Intelligence System
+  </footer>
 
 </body>
 </html>
