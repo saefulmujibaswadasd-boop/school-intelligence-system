@@ -1,50 +1,89 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>School Intelligence System 2026</title>
-<link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8">
+  <title>SIS 2026 - SD Negeri Wonokerto</title>
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
-
 <body>
 
-<header>
-<h1>School Intelligence System 2026</h1>
-<p>SD Negeri Wonokerto – Kecamatan Leksono</p>
-</header>
+<div class="layout">
 
-<nav>
-<a href="index.html">Home</a>
-<a href="supervisi.html">e-Supervisi</a>
-</nav>
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="logo">
+      <img src="assets/img/logo_sekolah.png" alt="Logo">
+      <h2>SIS 2026</h2>
+    </div>
 
-<main>
-<section class="dashboard">
+    <nav>
+      <a href="index.html" class="active">Dashboard</a>
+      <a href="pages/profil.html">Profil</a>
+      <a href="pages/teachers.html">Guru</a>
+      <a href="pages/students.html">Siswa</a>
+      <a href="pages/supervisi.html">Supervisi</a>
+      <a href="pages/monitoring.html">Monitoring</a>
+    </nav>
+  </aside>
 
-<div class="card">
-<h3>School Quality Index</h3>
-<p id="sqi">Loading...</p>
+  <!-- MAIN AREA -->
+  <div class="main">
+
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <h1>School Intelligence System</h1>
+      <div class="user-info">
+        SD Negeri Wonokerto
+      </div>
+    </header>
+
+    <!-- DASHBOARD CONTENT -->
+    <main class="content">
+
+      <div class="dashboard-cards">
+        <div class="card">
+          <h3>Total Guru</h3>
+          <p id="totalGuru">--</p>
+        </div>
+
+        <div class="card">
+          <h3>Total Siswa</h3>
+          <p id="totalSiswa">--</p>
+        </div>
+
+        <div class="card">
+          <h3>Supervisi Semester</h3>
+          <p>Aktif</p>
+        </div>
+
+        <div class="card">
+          <h3>Status Sistem</h3>
+          <p>Online</p>
+        </div>
+      </div>
+
+      <section class="roadmap">
+        <h2>🚀 Roadmap Pengembangan</h2>
+        <div class="timeline">
+          <div class="step">Phase 1<br>Setup Website</div>
+          <div class="step">Phase 2<br>e-Supervisi</div>
+          <div class="step">Phase 3<br>Performance Center</div>
+          <div class="step">Phase 4<br>Quality Intelligence</div>
+          <div class="step">Phase 5<br>AI Engine</div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      © 2026 SD Negeri Wonokerto
+    </footer>
+
+  </div>
 </div>
 
-<div class="card">
-<h3>Rata-rata IKP Guru</h3>
-<p id="ikp">Loading...</p>
-</div>
-
-<div class="card">
-<h3>Rata-rata Nilai Siswa</h3>
-<p id="nilai">Loading...</p>
-</div>
-
-</section>
-</main>
-
-<footer>
-<p>© 2026 SD Negeri Wonokerto</p>
-</footer>
-
-<script src="assets/js/app.js"></script>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/monitoring.js"></script>
 
 </body>
 </html>
