@@ -7,44 +7,42 @@
 </head>
 <body>
 
-<div class="layout">
-  <aside class="sidebar">
-    <div class="logo">
-      <img src="../assets/img/logo_sekolah.png">
-      <h2>SIS 2026</h2>
-    </div>
-    <nav>
-      <a href="../index.html">Dashboard</a>
-      <a href="profil.html">Profil</a>
-      <a href="teachers.html">Guru</a>
-      <a href="students.html">Siswa</a>
-      <a href="supervisi.html">Supervisi</a>
-      <a href="monitoring.html" class="active">Monitoring</a>
-    </nav>
-  </aside>
+<header>
+  <h1>📊 Monitoring Dashboard</h1>
+</header>
 
-  <div class="main">
-    <header class="topbar">
-      <h1>Monitoring Sistem</h1>
-    </header>
+<main class="dashboard">
 
-    <main class="content">
-      <div class="dashboard-cards">
-        <div class="card">
-          <h3>Total Guru</h3>
-          <p id="totalGuru">--</p>
-        </div>
-
-        <div class="card">
-          <h3>Guru Aktif</h3>
-          <p id="guruAktif">--</p>
-        </div>
-      </div>
-    </main>
-
-    <footer>© 2026 SD Negeri Wonokerto</footer>
+  <div class="card">
+    <h3>Total Guru</h3>
+    <p id="totalGuru">-</p>
   </div>
-</div>
+
+  <div class="card">
+    <h3>Total Siswa</h3>
+    <p id="totalSiswa">-</p>
+  </div>
+
+  <div class="card">
+    <h3>Total Supervisi</h3>
+    <p id="totalSupervisi">-</p>
+  </div>
+
+  <div class="card">
+    <h3>Rata-rata Skor</h3>
+    <p id="rataSkor">-</p>
+  </div>
+
+  <div class="card full">
+    <h3>Kategori Mutu Sekolah</h3>
+    <p id="kategoriMutu">-</p>
+  </div>
+
+</main>
+
+<footer>
+  © 2026 SD Negeri Wonokerto
+</footer>
 
 <script src="../assets/js/config.js"></script>
 <script src="../assets/js/monitoring.js"></script>
