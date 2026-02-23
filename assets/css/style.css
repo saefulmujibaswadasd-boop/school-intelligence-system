@@ -27,3 +27,29 @@
 .card.full {
   grid-column: span 2;
 }
+/* =========================
+   IMAGE & AVATAR
+========================= */
+
+.logo {
+  height: 60px;
+}
+
+.avatar-guru {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #1e3a8a;
+}
+
+.avatar-siswa {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.default-avatar {
+  opacity: 0.6;
+}
