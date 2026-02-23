@@ -1,20 +1,21 @@
 const CONFIG = {
+
   PROFIL: {
     FILE_NAME: "SIS_2026_MASTER_PROFIL",
     SHEET: "profil_sekolah",
-    URL: "CSV_URL_PROFIL"
+    URL: "URL_CSV_PROFIL"
   },
 
   TEACHERS: {
     FILE_NAME: "SIS_2026_MASTER_TEACHERS",
     SHEET: "teachers_master",
-    URL: "CSV_URL_TEACHERS"
+    URL: "URL_CSV_TEACHERS"
   },
 
   STUDENTS: {
     FILE_NAME: "SIS_2026_MASTER_STUDENTS_PUBLIC",
     SHEET: "students_master_public",
-    URL: "CSV_URL_STUDENTS"
+    URL: "URL_CSV_STUDENTS"
   },
 
   SUPERVISI: {
@@ -22,6 +23,7 @@ const CONFIG = {
     OBSERVASI: "supervisi_observasi",
     INDIKATOR: "supervisi_indikator_master",
     DETAIL: "supervisi_detail_skor",
-    URL_OBSERVASI: "PRIVATE_OR_SUMMARY_URL"
+    URL_OBSERVASI: "URL_PRIVATE_OR_SUMMARY"
   }
+
 };
