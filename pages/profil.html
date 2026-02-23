@@ -2,47 +2,71 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Profil Sekolah - SIS 2026</title>
   <link rel="stylesheet" href="../assets/css/style.css">
 </head>
+
 <body>
 
-<div class="layout">
+  <!-- HEADER -->
+  <header>
+    <h1>🏫 Profil Sekolah</h1>
+    <p>School Intelligence System 2026</p>
+  </header>
 
-  <aside class="sidebar">
-    <div class="logo">
-      <img src="../assets/img/logo_sekolah.png">
-      <h2>SIS 2026</h2>
-    </div>
-    <nav>
-      <a href="../index.html">Dashboard</a>
-      <a href="profil.html" class="active">Profil</a>
-      <a href="teachers.html">Guru</a>
-      <a href="students.html">Siswa</a>
-      <a href="supervisi.html">Supervisi</a>
-      <a href="monitoring.html">Monitoring</a>
-    </nav>
-  </aside>
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="../index.html">Dashboard</a>
+    <a href="teachers.html">Data Guru</a>
+    <a href="students.html">Data Siswa</a>
+    <a href="supervisi.html">e-Supervisi</a>
+    <a href="monitoring.html">Monitoring</a>
+  </nav>
 
-  <div class="main">
-    <header class="topbar">
-      <h1>Profil Sekolah</h1>
-    </header>
+  <!-- MAIN -->
+  <main>
 
-    <main class="content">
-      <div class="card">
-        <h2 id="namaSekolah"></h2>
-        <p id="alamatSekolah"></p>
-        <p>Kepala Sekolah: <span id="kepalaSekolah"></span></p>
+    <div class="dashboard-grid">
+
+      <div class="card grid-full">
+        <h2>Informasi Sekolah</h2>
+
+        <p><strong>Nama Sekolah:</strong> <span id="namaSekolah">Loading...</span></p>
+        <p><strong>Alamat:</strong> <span id="alamatSekolah">Loading...</span></p>
+        <p><strong>Kepala Sekolah:</strong> <span id="kepalaSekolah">Loading...</span></p>
+        <p><strong>NPSN:</strong> <span id="npsnSekolah">Loading...</span></p>
+        <p><strong>Akreditasi:</strong> <span id="akreditasiSekolah">Loading...</span></p>
+
       </div>
-    </main>
 
-    <footer>© 2026 SD Negeri Wonokerto</footer>
-  </div>
-</div>
+      <div class="card">
+        <h2>Visi</h2>
+        <p id="visiSekolah">Loading...</p>
+      </div>
 
-<script src="../assets/js/config.js"></script>
-<script src="../assets/js/profil.js"></script>
+      <div class="card">
+        <h2>Misi</h2>
+        <p id="misiSekolah">Loading...</p>
+      </div>
+
+      <div class="card grid-full">
+        <h2>Tujuan Sekolah</h2>
+        <p id="tujuanSekolah">Loading...</p>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 SD Negeri Wonokerto — SIS 2026
+  </footer>
+
+  <!-- SCRIPT -->
+  <script src="../assets/js/config.js"></script>
+  <script src="../assets/js/profil.js"></script>
 
 </body>
 </html>
