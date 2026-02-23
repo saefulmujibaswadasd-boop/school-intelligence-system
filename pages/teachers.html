@@ -2,44 +2,59 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Data Guru - SIS 2026</title>
   <link rel="stylesheet" href="../assets/css/style.css">
 </head>
+
 <body>
 
-<div class="layout">
-  <aside class="sidebar">
-    <div class="logo">
-      <img src="../assets/img/logo_sekolah.png">
-      <h2>SIS 2026</h2>
-    </div>
-    <nav>
-      <a href="../index.html">Dashboard</a>
-      <a href="profil.html">Profil</a>
-      <a href="teachers.html" class="active">Guru</a>
-      <a href="students.html">Siswa</a>
-      <a href="supervisi.html">Supervisi</a>
-      <a href="monitoring.html">Monitoring</a>
-    </nav>
-  </aside>
+  <header>
+    <h1>👨‍🏫 Data Guru</h1>
+    <p>School Intelligence System 2026</p>
+  </header>
 
-  <div class="main">
-    <header class="topbar">
-      <h1>Data Guru</h1>
-    </header>
+  <nav>
+    <a href="../index.html">Dashboard</a>
+    <a href="profil.html">Profil</a>
+    <a href="students.html">Data Siswa</a>
+    <a href="supervisi.html">e-Supervisi</a>
+    <a href="monitoring.html">Monitoring</a>
+  </nav>
 
-    <main class="content">
-      <div class="card">
-        <table id="teachersTable"></table>
+  <main>
+
+    <div class="dashboard-grid">
+
+      <div class="card grid-full">
+        <h2>Daftar Guru Aktif</h2>
+
+        <table id="teachersTable" class="modern-table">
+          <thead>
+            <tr>
+              <th>Nama</th>
+              <th>Jabatan</th>
+              <th>Kelas</th>
+              <th>Status</th>
+              <th>Pendidikan</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+
       </div>
-    </main>
 
-    <footer>© 2026 SD Negeri Wonokerto</footer>
-  </div>
-</div>
+    </div>
 
-<script src="../assets/js/config.js"></script>
-<script src="../assets/js/teachers.js"></script>
+  </main>
+
+  <footer>
+    © 2026 SD Negeri Wonokerto — SIS 2026
+  </footer>
+
+  <script src="../assets/js/config.js"></script>
+  <script src="../assets/js/teachers.js"></script>
 
 </body>
 </html>
