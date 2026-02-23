@@ -1,81 +1,46 @@
-# 🏫 School Intelligence System 2026
+# 🏫 School Intelligence System (SIS) 2026
 
-Platform Digital SD Negeri Wonokerto  
+Platform Transformasi Digital  
+SD Negeri Wonokerto – Kecamatan Leksono – Kabupaten Wonosobo  
+
 Berbasis GitHub Pages – 100% Gratis – Tanpa Server Berbayar  
 
 ---
 
-## 🎯 Tujuan Sistem
+## 🎯 Visi Sistem
 
 Membangun sistem manajemen sekolah berbasis:
 
-- Data Driven Management  
-- AI Generator System  
-- Deep Learning Analytics  
-- School Quality Intelligence  
-- Digital Supervisi Terintegrasi  
+- Data Driven Decision Making
+- Deep Rule-Based Analytics
+- Supervisi Digital Terintegrasi
+- School Quality Intelligence
+- Modular & Scalable Architecture
 
 ---
 
-## 🧱 Arsitektur Sistem
+## 🧱 Arsitektur Teknologi
 
-### Frontend
-- HTML5  
-- CSS3  
-- JavaScript Modular  
+Frontend:
+- HTML5
+- CSS3 (Custom Design System)
+- JavaScript Modular
 
-### Hosting
+Hosting:
 - GitHub Pages (Gratis)
 
-### Database
-- Google Sheets (Gratis)
+Database:
+- Google Sheets (Master Database)
 
-### Storage
-- Google Drive (Dokumen & Arsip Digital)
+Storage:
+- Google Drive
 
----
-
-## 📂 Struktur Folder
-
-```
-school-intelligence-system/
-│
-├── index.html
-├── supervisi.html
-│
-├── assets/
-│   ├── css/
-│   │   └── style.css
-│   ├── js/
-│   │   ├── app.js
-│   │   ├── supervisi.js
-│   │   └── analytics.js
-│   └── data/
-│
-└── README.md
-```
+Tanpa:
+- Server berbayar
+- Backend khusus
+- API berbayar
+- OpenAI wajib
 
 ---
 
-## 🚀 Roadmap Pengembangan
-
-**Phase 1:** Setup Dasar Website  
-**Phase 2:** Modul e-Supervisi  
-**Phase 3:** Teacher Performance Center  
-**Phase 4:** School Quality Intelligence  
-**Phase 5:** AI Engine Center  
-
----
-
-## 🔮 Visi 2026–2030
-
-Mewujudkan sekolah berbasis:
-- Supervisi Digital
-- Evaluasi Kinerja Otomatis
-- Analisis Mutu Sekolah Real-Time
-- AI Assistant Kepala Sekolah
-
----
-
-© 2026 SD Negeri Wonokerto  
-Developed with ❤️ using 100% Free Technology
+## 🗂 Struktur Repository Final
