@@ -1,14 +1,22 @@
-// LOAD PROFIL SEKOLAH
+document.addEventListener("DOMContentLoaded", () => {
 
-async function loadProfil() {
-  const response = await fetch(CONFIG.PROFIL.URL);
-  const data = await response.text();
-  const rows = data.split("\n");
-  const cols = rows[1].split(",");
+  fetch(CONFIG.PROFIL.URL)
+    .then(res => res.text())
+    .then(data => {
 
-  document.getElementById("namaSekolah").innerText = cols[1];
-  document.getElementById("alamatSekolah").innerText = cols[2];
-  document.getElementById("kepalaSekolah").innerText = cols[9];
-}
+      const rows = data.split("\n").map(r => r.split(","));
+      const header = rows[0];
+      const values = rows[1];
 
-document.addEventListener("DOMContentLoaded", loadProfil);
+      const profil = {};
+      header.forEach((h, i) => {
+        profil[h.trim()] = values[i];
+      });
+
+      document.getElementById("namaSekolah").textContent = profil.nama_sekolah;
+      document.getElementById("alamatSekolah").textContent = profil.alamat;
+      document.getElementById("kepalaSekolah").textContent = profil.kepala_sekolah;
+
+    });
+
+});
