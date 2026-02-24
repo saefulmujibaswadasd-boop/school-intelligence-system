@@ -80,8 +80,10 @@ function hitungSkor(){
   else kategori = "Perlu Pembinaan";
 
   document.getElementById("kategoriSkor").textContent = kategori;
-}
 
+  // 🔥 AUTO GENERATE
+  generateRekomendasi();
+}
 function generateCatatan(){
   const rerata = parseFloat(document.getElementById("rerataSkor").textContent);
 
@@ -111,6 +113,8 @@ function generateRekomendasi(){
     return;
   }
 
+  const mode = document.getElementById("modeBahasa")?.value || "pendek";
+
   let skorArray = [];
 
   skorInputs.forEach((s,i)=>{
@@ -120,16 +124,35 @@ function generateRekomendasi(){
     });
   });
 
-  // Urutkan dari skor terendah
   skorArray.sort((a,b)=>a.skor-b.skor);
-
   const terendah = skorArray.slice(0,3);
 
-  let rekom = "Fokus perbaikan pada:\n\n";
+  const rerata = parseFloat(document.getElementById("rerataSkor")?.textContent || 0);
 
-  terendah.forEach(t=>{
-    rekom += "- " + t.indikator + " (Skor: " + t.skor + ")\n";
-  });
+  let rekom = "";
+
+  if(mode === "pendek"){
+    rekom = "Perlu peningkatan pada: ";
+    terendah.forEach((t,i)=>{
+      rekom += t.indikator + (i < terendah.length-1 ? ", " : "");
+    });
+  }
+
+  else if(mode === "mendalam"){
+    rekom = "Berdasarkan hasil supervisi, ditemukan beberapa aspek yang perlu diperkuat, khususnya pada:\n\n";
+    terendah.forEach(t=>{
+      rekom += "- " + t.indikator + " (Skor: " + t.skor + ")\n";
+    });
+    rekom += "\nPeningkatan dapat dilakukan melalui refleksi pembelajaran, penguatan strategi diferensiasi, serta manajemen kelas yang lebih efektif.";
+  }
+
+  else if(mode === "akademik"){
+    rekom = `Rerata skor supervisi adalah ${rerata}. Analisis menunjukkan bahwa indikator dengan capaian terendah meliputi:\n\n`;
+    terendah.forEach(t=>{
+      rekom += `• ${t.indikator} (Skor ${t.skor})\n`;
+    });
+    rekom += "\nRekomendasi berbasis data ini menunjukkan perlunya intervensi terstruktur melalui coaching, supervisi lanjutan, dan peningkatan kompetensi pedagogik berbasis bukti.";
+  }
 
   document.getElementById("rekomendasiOutput").value = rekom;
 }
