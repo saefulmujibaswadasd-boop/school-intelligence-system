@@ -2,6 +2,7 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>e-Supervisi - SIS 2026</title>
   <link rel="stylesheet" href="../assets/css/style.css">
 </head>
@@ -24,43 +25,66 @@
 
   <h2>Form Observasi Kelas</h2>
 
-  <label>Guru:</label>
-  <select id="teacherSelect"></select>
+  <!-- IDENTITAS -->
+  <div class="form-group">
+    <label>Guru:</label>
+    <select id="teacherSelect">
+      <option value="">-- Pilih Guru --</option>
+    </select>
+  </div>
 
-  <label>Penilai:</label>
-  <select id="assessorRole">
-    <option value="kepala">Kepala Sekolah</option>
-    <option value="pengawas">Pengawas</option>
-  </select>
+  <div class="form-group">
+    <label>Penilai:</label>
+    <select id="assessorRole">
+      <option value="kepala">Kepala Sekolah</option>
+      <option value="pengawas">Pengawas</option>
+    </select>
+  </div>
 
-  <label>Tanggal:</label>
-  <input type="date" id="tanggal">
+  <div class="form-group">
+    <label>Tanggal:</label>
+    <input type="date" id="tanggal">
+  </div>
 
   <hr>
 
+  <!-- INDIKATOR -->
   <div id="indikatorContainer"></div>
 
-  <button onclick="hitungSkor()">Hitung Nilai</button>
-  <button onclick="generateCatatan()">Generate Catatan</button>
-  <button onclick="generateRekomendasi()">Generate Rekomendasi</button>
+  <!-- TOMBOL -->
+  <div class="button-group">
+    <button type="button" onclick="hitungSkor()">Hitung Nilai</button>
+    <button type="button" onclick="generateCatatan()">Generate Catatan</button>
+    <button type="button" onclick="generateRekomendasi()">Generate Rekomendasi</button>
+  </div>
 
   <hr>
-<label>Model Bahasa Rekomendasi:</label>
-<select id="modeBahasa">
-  <option value="pendek">Pendek</option>
-  <option value="mendalam">Mendalam</option>
-  <option value="akademik">Akademik + Data</option>
-</select>
-  <h3>Hasil</h3>
-  <p>Total Skor: <span id="totalSkor">0</span></p>
-  <p>Rata-rata: <span id="rerataSkor">0</span></p>
-  <p>Kategori: <span id="kategoriSkor">-</span></p>
 
+  <!-- MODE BAHASA -->
+  <div class="form-group">
+    <label>Model Bahasa Rekomendasi:</label>
+    <select id="modeBahasa">
+      <option value="pendek">Pendek</option>
+      <option value="mendalam">Mendalam</option>
+      <option value="akademik">Akademik + Data</option>
+    </select>
+  </div>
+
+  <!-- HASIL -->
+  <h3>Hasil Penilaian</h3>
+  <div class="hasil-box">
+    <p><strong>Total Skor:</strong> <span id="totalSkor">0</span></p>
+    <p><strong>Rata-rata:</strong> <span id="rerataSkor">0</span></p>
+    <p><strong>Kategori:</strong> <span id="kategoriSkor">-</span></p>
+  </div>
+
+  <!-- CATATAN -->
   <h3>Catatan Kepala Sekolah</h3>
-  <textarea id="catatanOutput" rows="5"></textarea>
+  <textarea id="catatanOutput" rows="5" placeholder="Catatan akan muncul di sini..."></textarea>
 
-  <h3>Rekomendasi</h3>
-  <textarea id="rekomendasiOutput" rows="5"></textarea>
+  <!-- REKOMENDASI -->
+  <h3>Rekomendasi Tindak Lanjut</h3>
+  <textarea id="rekomendasiOutput" rows="5" placeholder="Rekomendasi akan muncul di sini..."></textarea>
 
 </div>
 
@@ -71,4 +95,3 @@
 
 </body>
 </html>
-
