@@ -60,14 +60,32 @@ function loadIndikator(){
 }
 
 function hitungSkor(){
-  const skorInputs = document.querySelectorAll(".skorInput");
-  let total = 0;
 
-  skorInputs.forEach(s=>{
-    total += parseInt(s.value);
+  const skorInputs = document.querySelectorAll(".skorInput");
+  
+  if(skorInputs.length === 0){
+    alert("Belum ada indikator penilaian.");
+    return;
+  }
+
+  let total = 0;
+  let jumlahValid = 0;
+
+  skorInputs.forEach(s => {
+    const nilai = parseInt(s.value);
+
+    if(!isNaN(nilai)){
+      total += nilai;
+      jumlahValid++;
+    }
   });
 
-  const rerata = total / skorInputs.length;
+  if(jumlahValid === 0){
+    alert("Isi skor terlebih dahulu.");
+    return;
+  }
+
+  const rerata = total / jumlahValid;
 
   document.getElementById("totalSkor").textContent = total;
   document.getElementById("rerataSkor").textContent = rerata.toFixed(2);
@@ -81,7 +99,7 @@ function hitungSkor(){
 
   document.getElementById("kategoriSkor").textContent = kategori;
 
-  // 🔥 AUTO GENERATE
+  // 🔥 AUTO GENERATE hanya jika valid
   generateRekomendasi();
 }
 function generateCatatan(){
@@ -155,5 +173,15 @@ function generateRekomendasi(){
   }
 
   document.getElementById("rekomendasiOutput").value = rekom;
+}
+function validasiForm() {
+  const guru = document.getElementById("teacherSelect").value;
+  const tanggal = document.getElementById("tanggal").value;
+
+  if (!guru || !tanggal) {
+    alert("Lengkapi guru dan tanggal terlebih dahulu.");
+    return false;
+  }
+  return true;
 }
 
