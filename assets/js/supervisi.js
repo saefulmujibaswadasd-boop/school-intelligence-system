@@ -124,5 +124,8 @@ function generateRekomendasi(){
     rekom += "- " + t.indikator + "\n";
   });
 
-  document.getElementById("rekomendasiOutput").value = rekom;
-}
+  document.addEventListener("DOMContentLoaded", () => {
+  loadTeachers();
+  loadIndikator();
+});
+
