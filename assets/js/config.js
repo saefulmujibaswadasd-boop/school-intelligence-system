@@ -9,7 +9,7 @@ const CONFIG = {
   TEACHERS: {
     FILE_NAME: "SIS_2026_MASTER_TEACHERS",
     SHEET: "teachers_master",
-    URL: "URL_CSV_TEACHERS"
+    URL: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTJb-KSHjHD6WiGJ2zYY8p-9aKMV2-pPctameYbK4ne5qA2hY3fKSZV4DPoQHGjmdet7dSK22jHks04/pub?gid=0&single=true&output=csv"
   },
 
   STUDENTS: {
@@ -29,6 +29,7 @@ const CONFIG = {
 
   URL_OBSERVASI: "URL_PRIVATE_OR_SUMMARY"
 }
+
 
 
 
