@@ -263,3 +263,93 @@ function simpanHasil() {
   localStorage.setItem("hasilSupervisi", JSON.stringify(data));
   alert("Data supervisi berhasil disimpan.");
 }
+// ===============================
+// EXPORT PDF RESMI SUPERVISI
+// ===============================
+async function exportPDF() {
+
+  if (!validasiForm()) return;
+
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+
+  const guruSelect = document.getElementById("teacherSelect");
+  const guruNama = guruSelect.options[guruSelect.selectedIndex].text;
+
+  const penilai = document.getElementById("assessorRole").value === "kepala"
+    ? "Kepala Sekolah"
+    : "Pengawas";
+
+  const tanggal = document.getElementById("tanggal").value;
+
+  const total = document.getElementById("totalSkor").textContent;
+  const rerata = document.getElementById("rerataSkor").textContent;
+  const kategori = document.getElementById("kategoriSkor").textContent;
+  const catatan = document.getElementById("catatanOutput").value;
+  const rekomendasi = document.getElementById("rekomendasiOutput").value;
+
+  if (!rerata || rerata === "0") {
+    alert("Hitung skor terlebih dahulu sebelum export PDF.");
+    return;
+  }
+
+  let y = 15;
+
+  // HEADER
+  doc.setFontSize(14);
+  doc.text("LAPORAN SUPERVISI PEMBELAJARAN", 105, y, { align: "center" });
+
+  y += 10;
+  doc.setFontSize(11);
+
+  doc.text(`Nama Guru : ${guruNama}`, 14, y); y += 6;
+  doc.text(`Penilai     : ${penilai}`, 14, y); y += 6;
+  doc.text(`Tanggal     : ${tanggal}`, 14, y); y += 10;
+
+  // TABEL SKOR
+  doc.text("RINCIAN INDIKATOR:", 14, y); 
+  y += 6;
+
+  const skorInputs = document.querySelectorAll(".skorInput");
+
+  skorInputs.forEach((s, i) => {
+    const indikator = indikatorList[i]?.indikator || "Indikator";
+    const skor = s.value || "-";
+
+    if (y > 270) {
+      doc.addPage();
+      y = 20;
+    }
+
+    doc.text(`${i + 1}. ${indikator} : ${skor}`, 14, y);
+    y += 6;
+  });
+
+  y += 4;
+
+  doc.text(`Total Skor : ${total}`, 14, y); y += 6;
+  doc.text(`Rata-rata  : ${rerata}`, 14, y); y += 6;
+  doc.text(`Kategori   : ${kategori}`, 14, y); y += 10;
+
+  // CATATAN
+  doc.text("Catatan:", 14, y);
+  y += 6;
+  const catatanSplit = doc.splitTextToSize(catatan, 180);
+  doc.text(catatanSplit, 14, y);
+  y += catatanSplit.length * 6 + 6;
+
+  // REKOMENDASI
+  doc.text("Rekomendasi:", 14, y);
+  y += 6;
+  const rekomSplit = doc.splitTextToSize(rekomendasi, 180);
+  doc.text(rekomSplit, 14, y);
+  y += rekomSplit.length * 6 + 20;
+
+  // TANDA TANGAN
+  doc.text("Mengetahui,", 140, y);
+  y += 20;
+  doc.text("(_______________________)", 130, y);
+
+  // SAVE FILE
+  doc.save(`Supervisi_${guruNama}_${tanggal}.pdf`);
+}
