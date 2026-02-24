@@ -15,7 +15,7 @@ const CONFIG = {
   STUDENTS: {
     FILE_NAME: "SIS_2026_MASTER_STUDENTS_PUBLIC",
     SHEET: "students_master_public",
-    URL: "URL_CSV_STUDENTS"
+    URL: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTFAnhv6yfV1TR_CgoI6wHScL5YORse-MaNCkKXPprglTALEOnEWmfmpn1W8fuoqUWpORKXjDZgLzFy/pub?gid=0&single=true&output=csv"
   },
 
   SUPERVISI: {
@@ -29,6 +29,7 @@ const CONFIG = {
 
   URL_OBSERVASI: "URL_PRIVATE_OR_SUMMARY"
 }
+
 
 
 
