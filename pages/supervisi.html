@@ -2,57 +2,64 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>e-Supervisi - SIS 2026</title>
   <link rel="stylesheet" href="../assets/css/style.css">
 </head>
-
 <body>
 
 <header>
-  <h1>📊 e-Supervisi Guru</h1>
-  <p>School Intelligence System 2026</p>
+  <h1>📋 e-Supervisi Digital</h1>
 </header>
 
 <nav>
   <a href="../index.html">Dashboard</a>
-  <a href="profil.html">Profil</a>
-  <a href="teachers.html">Data Guru</a>
-  <a href="students.html">Data Siswa</a>
+  <a href="teachers.html">Guru</a>
+  <a href="students.html">Siswa</a>
   <a href="monitoring.html">Monitoring</a>
 </nav>
 
 <main>
 
-  <div class="dashboard-grid">
+<div class="card grid-full">
 
-    <div class="card grid-full">
-      <h2>Riwayat Supervisi</h2>
+  <h2>Form Observasi Kelas</h2>
 
-      <table id="supervisiTable" class="modern-table">
-        <thead>
-          <tr>
-            <th>Guru</th>
-            <th>Tanggal</th>
-            <th>Semester</th>
-            <th>Tahun Ajaran</th>
-            <th>Rerata</th>
-            <th>Kategori</th>
-            <th>Penilai</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
+  <label>Guru:</label>
+  <select id="teacherSelect"></select>
 
-    </div>
+  <label>Penilai:</label>
+  <select id="assessorRole">
+    <option value="kepala">Kepala Sekolah</option>
+    <option value="pengawas">Pengawas</option>
+  </select>
 
-  </div>
+  <label>Tanggal:</label>
+  <input type="date" id="tanggal">
+
+  <hr>
+
+  <div id="indikatorContainer"></div>
+
+  <button onclick="hitungSkor()">Hitung Nilai</button>
+  <button onclick="generateCatatan()">Generate Catatan</button>
+  <button onclick="generateRekomendasi()">Generate Rekomendasi</button>
+
+  <hr>
+
+  <h3>Hasil</h3>
+  <p>Total Skor: <span id="totalSkor">0</span></p>
+  <p>Rata-rata: <span id="rerataSkor">0</span></p>
+  <p>Kategori: <span id="kategoriSkor">-</span></p>
+
+  <h3>Catatan Kepala Sekolah</h3>
+  <textarea id="catatanOutput" rows="5"></textarea>
+
+  <h3>Rekomendasi</h3>
+  <textarea id="rekomendasiOutput" rows="5"></textarea>
+
+</div>
 
 </main>
-
-<footer>
-  © 2026 SD Negeri Wonokerto — SIS 2026
-</footer>
 
 <script src="../assets/js/config.js"></script>
 <script src="../assets/js/supervisi.js"></script>
