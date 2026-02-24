@@ -1,48 +1,40 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  const loading = document.getElementById("loading");
-  const container = document.getElementById("profilContainer");
-
-  fetch("profil.json")
+  fetch("profil.csv")
     .then(response => {
       if (!response.ok) {
-        throw new Error("Gagal mengambil data");
+        throw new Error("File profil.csv tidak ditemukan");
       }
-      return response.json();
+      return response.text();
     })
     .then(data => {
 
-      loading.style.display = "none";
+      const rows = data.trim().split("\n").map(row => row.split(","));
 
-      if (!Array.isArray(data) || data.length === 0) {
-        container.innerHTML = "<p>Data profil tidak tersedia.</p>";
-        return;
+      if (rows.length < 2) {
+        throw new Error("Format CSV tidak valid (minimal 2 baris)");
       }
 
-      data.forEach(profil => {
+      const header = rows[0];
+      const values = rows[1];
 
-        const card = document.createElement("div");
-        card.className = "card";
-
-        card.innerHTML = `
-          <h2>${profil.nama_sekolah || "-"}</h2>
-          <p><span class="label">Alamat:</span> ${profil.alamat || "-"}</p>
-          <p><span class="label">Kepala Sekolah:</span> ${profil.kepala_sekolah || "-"}</p>
-          <p><span class="label">NPSN:</span> ${profil.npsn || "-"}</p>
-          <p><span class="label">Akreditasi:</span> ${profil.akreditasi || "-"}</p>
-          <p><span class="label">Visi:</span> ${profil.visi || "-"}</p>
-          <p><span class="label">Misi:</span> ${profil.misi || "-"}</p>
-          <p><span class="label">Tujuan:</span> ${profil.tujuan || "-"}</p>
-        `;
-
-        container.appendChild(card);
+      const profil = {};
+      header.forEach((h, i) => {
+        profil[h.trim()] = values[i] ? values[i].trim() : "";
       });
+
+      document.getElementById("namaSekolah").textContent = profil.nama_sekolah || "-";
+      document.getElementById("alamatSekolah").textContent = profil.alamat || "-";
+      document.getElementById("kepalaSekolah").textContent = profil.kepala_sekolah || "-";
+      document.getElementById("npsnSekolah").textContent = profil.npsn || "-";
+      document.getElementById("akreditasiSekolah").textContent = profil.akreditasi || "-";
+      document.getElementById("visiSekolah").textContent = profil.visi || "-";
+      document.getElementById("misiSekolah").textContent = profil.misi || "-";
+      document.getElementById("tujuanSekolah").textContent = profil.tujuan || "-";
 
     })
     .catch(error => {
-      loading.style.display = "none";
-      container.innerHTML = `<p style="color:red;">Terjadi kesalahan: ${error.message}</p>`;
-      console.error(error);
+      console.error("Terjadi kesalahan:", error.message);
     });
 
 });
