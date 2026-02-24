@@ -21,74 +21,106 @@
 
 <main>
 
-<div class="card grid-full">
+  <div class="card grid-full">
 
-  <h2>Form Observasi Kelas</h2>
+    <h2>Form Observasi Kelas</h2>
 
-  <!-- IDENTITAS -->
-  <div class="form-group">
-    <label>Guru:</label>
-    <select id="teacherSelect">
-      <option value="">-- Pilih Guru --</option>
-    </select>
+    <!-- ===================== -->
+    <!-- IDENTITAS SUPERVISI -->
+    <!-- ===================== -->
+
+    <div class="form-group">
+      <label for="teacherSelect">Guru</label>
+      <select id="teacherSelect">
+        <option value="">-- Pilih Guru --</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="assessorRole">Penilai</label>
+      <select id="assessorRole">
+        <option value="kepala">Kepala Sekolah</option>
+        <option value="pengawas">Pengawas</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="tanggal">Tanggal Observasi</label>
+      <input type="date" id="tanggal">
+    </div>
+
+    <hr>
+
+    <!-- ===================== -->
+    <!-- INDIKATOR DINAMIS -->
+    <!-- ===================== -->
+
+    <h3>Indikator Penilaian</h3>
+    <div id="indikatorContainer"></div>
+
+    <div class="button-group">
+      <button type="button" onclick="hitungSkor()">Hitung Nilai</button>
+      <button type="button" onclick="generateCatatan()">Generate Catatan</button>
+      <button type="button" onclick="generateRekomendasi()">Generate Rekomendasi</button>
+      <button type="button" onclick="simpanHasil()">Simpan</button>
+    </div>
+
+    <hr>
+
+    <!-- ===================== -->
+    <!-- MODE BAHASA -->
+    <!-- ===================== -->
+
+    <div class="form-group">
+      <label for="modeBahasa">Model Bahasa Rekomendasi</label>
+      <select id="modeBahasa">
+        <option value="pendek">Pendek</option>
+        <option value="mendalam">Mendalam</option>
+        <option value="akademik">Akademik + Data</option>
+      </select>
+    </div>
+
+    <!-- ===================== -->
+    <!-- HASIL -->
+    <!-- ===================== -->
+
+    <h3>Hasil Penilaian</h3>
+
+    <div class="hasil-box">
+      <p><strong>Total Skor:</strong> <span id="totalSkor">0</span></p>
+      <p><strong>Rata-rata:</strong> <span id="rerataSkor">0</span></p>
+      <p><strong>Kategori:</strong> <span id="kategoriSkor">-</span></p>
+    </div>
+
+    <!-- ===================== -->
+    <!-- CATATAN -->
+    <!-- ===================== -->
+
+    <h3>Catatan Kepala Sekolah</h3>
+    <textarea 
+      id="catatanOutput" 
+      rows="5" 
+      placeholder="Catatan supervisi akan muncul di sini...">
+    </textarea>
+
+    <!-- ===================== -->
+    <!-- REKOMENDASI -->
+    <!-- ===================== -->
+
+    <h3>Rekomendasi Tindak Lanjut</h3>
+    <textarea 
+      id="rekomendasiOutput" 
+      rows="5" 
+      placeholder="Rekomendasi otomatis akan muncul di sini...">
+    </textarea>
+
   </div>
-
-  <div class="form-group">
-    <label>Penilai:</label>
-    <select id="assessorRole">
-      <option value="kepala">Kepala Sekolah</option>
-      <option value="pengawas">Pengawas</option>
-    </select>
-  </div>
-
-  <div class="form-group">
-    <label>Tanggal:</label>
-    <input type="date" id="tanggal">
-  </div>
-
-  <hr>
-
-  <!-- INDIKATOR -->
-  <div id="indikatorContainer"></div>
-
-  <!-- TOMBOL -->
-  <div class="button-group">
-    <button type="button" onclick="hitungSkor()">Hitung Nilai</button>
-    <button type="button" onclick="generateCatatan()">Generate Catatan</button>
-    <button type="button" onclick="generateRekomendasi()">Generate Rekomendasi</button>
-  </div>
-
-  <hr>
-
-  <!-- MODE BAHASA -->
-  <div class="form-group">
-    <label>Model Bahasa Rekomendasi:</label>
-    <select id="modeBahasa">
-      <option value="pendek">Pendek</option>
-      <option value="mendalam">Mendalam</option>
-      <option value="akademik">Akademik + Data</option>
-    </select>
-  </div>
-
-  <!-- HASIL -->
-  <h3>Hasil Penilaian</h3>
-  <div class="hasil-box">
-    <p><strong>Total Skor:</strong> <span id="totalSkor">0</span></p>
-    <p><strong>Rata-rata:</strong> <span id="rerataSkor">0</span></p>
-    <p><strong>Kategori:</strong> <span id="kategoriSkor">-</span></p>
-  </div>
-
-  <!-- CATATAN -->
-  <h3>Catatan Kepala Sekolah</h3>
-  <textarea id="catatanOutput" rows="5" placeholder="Catatan akan muncul di sini..."></textarea>
-
-  <!-- REKOMENDASI -->
-  <h3>Rekomendasi Tindak Lanjut</h3>
-  <textarea id="rekomendasiOutput" rows="5" placeholder="Rekomendasi akan muncul di sini..."></textarea>
-
-</div>
 
 </main>
+
+<!-- ===================== -->
+<!-- SCRIPT -->
+<!-- ===================== -->
 
 <script src="../assets/js/config.js"></script>
 <script src="../assets/js/supervisi.js"></script>
