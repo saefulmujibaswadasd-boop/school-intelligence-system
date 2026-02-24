@@ -1,40 +1,53 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
 
-  fetch("profil.csv")
-    .then(response => {
+  // Path dari profil.html (di /pages) ke file data
+  const filePath = "../assets/data/profil.csv";
+
+  fetch(filePath)
+    .then(function (response) {
       if (!response.ok) {
-        throw new Error("File profil.csv tidak ditemukan");
+        throw new Error("File tidak ditemukan: " + filePath);
       }
       return response.text();
     })
-    .then(data => {
+    .then(function (text) {
 
-      const rows = data.trim().split("\n").map(row => row.split(","));
+      const lines = text.trim().split(/\r?\n/);
 
-      if (rows.length < 2) {
-        throw new Error("Format CSV tidak valid (minimal 2 baris)");
+      if (lines.length < 2) {
+        throw new Error("Format CSV tidak valid");
       }
 
-      const header = rows[0];
-      const values = rows[1];
+      const headers = lines[0].split(",");
+      const values = lines[1].split(",");
 
       const profil = {};
-      header.forEach((h, i) => {
-        profil[h.trim()] = values[i] ? values[i].trim() : "";
+
+      headers.forEach(function (header, index) {
+        profil[header.trim()] = values[index]
+          ? values[index].trim()
+          : "-";
       });
 
-      document.getElementById("namaSekolah").textContent = profil.nama_sekolah || "-";
-      document.getElementById("alamatSekolah").textContent = profil.alamat || "-";
-      document.getElementById("kepalaSekolah").textContent = profil.kepala_sekolah || "-";
-      document.getElementById("npsnSekolah").textContent = profil.npsn || "-";
-      document.getElementById("akreditasiSekolah").textContent = profil.akreditasi || "-";
-      document.getElementById("visiSekolah").textContent = profil.visi || "-";
-      document.getElementById("misiSekolah").textContent = profil.misi || "-";
-      document.getElementById("tujuanSekolah").textContent = profil.tujuan || "-";
+      setText("namaSekolah", profil.nama_sekolah);
+      setText("alamatSekolah", profil.alamat);
+      setText("kepalaSekolah", profil.kepala_sekolah);
+      setText("npsnSekolah", profil.npsn);
+      setText("akreditasiSekolah", profil.akreditasi);
+      setText("visiSekolah", profil.visi);
+      setText("misiSekolah", profil.misi);
+      setText("tujuanSekolah", profil.tujuan);
 
     })
-    .catch(error => {
-      console.error("Terjadi kesalahan:", error.message);
+    .catch(function (error) {
+      console.error("Error Profil:", error.message);
     });
 
 });
+
+function setText(id, value) {
+  const el = document.getElementById(id);
+  if (el) {
+    el.textContent = value || "-";
+  }
+}
