@@ -3,7 +3,7 @@ const CONFIG = {
   PROFIL: {
     FILE_NAME: "SIS_2026_MASTER_PROFIL",
     SHEET: "profil_sekolah",
-    URL: "URL_CSV_PROFIL"
+    URL: "https://docs.google.com/spreadsheets/d/e/2PACX-1vT9OQNRFI0EfoDwzWlypwGlmsczVasRRYb8vpoCgVpou6hnZj8aiZhyqwGo4ip-mS9ob9UoxmdAMSfn/pub?gid=0&single=true&output=csv"
   },
 
   TEACHERS: {
@@ -29,5 +29,6 @@ const CONFIG = {
 
   URL_OBSERVASI: "URL_PRIVATE_OR_SUMMARY"
 }
+
 
 
