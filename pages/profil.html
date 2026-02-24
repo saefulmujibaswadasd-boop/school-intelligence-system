@@ -1,140 +1,73 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profil Sekolah</title>
 
-  <title>Profil Sekolah | SIS 2026</title>
-  <meta name="description" content="Profil resmi sekolah dalam sistem SIS 2026 - School Intelligence System berbasis data.">
-  <meta name="author" content="SIS 2026">
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6f9;
+  margin: 0;
+  padding: 20px;
+}
 
-  <!-- Google Font Modern -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+h1 {
+  text-align: center;
+}
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+#loading {
+  text-align: center;
+  margin-top: 50px;
+}
 
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="../assets/css/style.css">
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #ddd;
+  border-top: 5px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: auto;
+}
 
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-    }
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
 
-    .page-header {
-      text-align: center;
-      padding: 30px 20px;
-    }
+.card {
+  background: white;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 700px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
 
-    .page-header h1 {
-      font-weight: 700;
-      margin-bottom: 5px;
-    }
+.card h2 {
+  margin-top: 0;
+  color: #2c3e50;
+}
 
-    .page-header p {
-      opacity: 0.7;
-      font-size: 14px;
-    }
-
-    .card h2 i {
-      margin-right: 8px;
-      color: #1e88e5;
-    }
-
-    .loading-text {
-      opacity: 0.5;
-      font-style: italic;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-      font-size: 13px;
-      opacity: 0.6;
-    }
-  </style>
+.label {
+  font-weight: bold;
+}
+</style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
-  <header class="page-header">
-    <h1><i class="fa-solid fa-school"></i> Profil Sekolah</h1>
-    <p>School Intelligence System 2026</p>
-  </header>
+<h1>Profil Sekolah</h1>
 
-  <!-- NAVIGATION -->
-  <nav>
-    <a href="../index.html"><i class="fa-solid fa-chart-line"></i> Dashboard</a>
-    <a href="teachers.html"><i class="fa-solid fa-chalkboard-user"></i> Data Guru</a>
-    <a href="students.html"><i class="fa-solid fa-user-graduate"></i> Data Siswa</a>
-    <a href="supervisi.html"><i class="fa-solid fa-clipboard-check"></i> e-Supervisi</a>
-    <a href="monitoring.html"><i class="fa-solid fa-chart-pie"></i> Monitoring</a>
-  </nav>
+<div id="loading">
+  <div class="spinner"></div>
+  <p>Memuat data profil...</p>
+</div>
 
-  <!-- MAIN -->
-  <main>
-    <div class="dashboard-grid">
+<div id="profilContainer"></div>
 
-      <!-- INFORMASI SEKOLAH -->
-      <section class="card grid-full">
-        <h2><i class="fa-solid fa-circle-info"></i> Informasi Sekolah</h2>
-
-        <p><strong>Nama Sekolah:</strong> 
-          <span id="namaSekolah" class="loading-text">Memuat data...</span>
-        </p>
-
-        <p><strong>Alamat:</strong> 
-          <span id="alamatSekolah" class="loading-text">Memuat data...</span>
-        </p>
-
-        <p><strong>Kepala Sekolah:</strong> 
-          <span id="kepalaSekolah" class="loading-text">Memuat data...</span>
-        </p>
-
-        <p><strong>NPSN:</strong> 
-          <span id="npsnSekolah" class="loading-text">Memuat data...</span>
-        </p>
-
-        <p><strong>Akreditasi:</strong> 
-          <span id="akreditasiSekolah" class="loading-text">Memuat data...</span>
-        </p>
-      </section>
-
-      <!-- VISI -->
-      <section class="card">
-        <h2><i class="fa-solid fa-eye"></i> Visi</h2>
-        <p id="visiSekolah" class="loading-text">Memuat data...</p>
-      </section>
-
-      <!-- MISI -->
-      <section class="card">
-        <h2><i class="fa-solid fa-bullseye"></i> Misi</h2>
-        <p id="misiSekolah" class="loading-text">Memuat data...</p>
-      </section>
-
-      <!-- TUJUAN -->
-      <section class="card grid-full">
-        <h2><i class="fa-solid fa-flag-checkered"></i> Tujuan Sekolah</h2>
-        <p id="tujuanSekolah" class="loading-text">Memuat data...</p>
-      </section>
-
-    </div>
-  </main>
-
-  <!-- FOOTER -->
-  <footer>
-    © 2026 SD Negeri Wonokerto — SIS 2026  
-    <br>
-    <small>School Intelligence System | Data Driven School Management</small>
-  </footer>
-
-  <!-- SCRIPT -->
-  <script src="../assets/js/config.js"></script>
-  <script src="../assets/js/profil.js"></script>
+<script src="profil.js"></script>
 
 </body>
 </html>
