@@ -1,16 +1,17 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
 
-  // Path dari profil.html (di /pages) ke file data
-  const filePath = "../assets/data/profil.csv";
+  const BASE_PATH = window.location.origin + window.location.pathname.split("/pages")[0];
+
+  const filePath = BASE_PATH + "/assets/data/profil.csv";
 
   fetch(filePath)
-    .then(function (response) {
+    .then(response => {
       if (!response.ok) {
-        throw new Error("File tidak ditemukan: " + filePath);
+        throw new Error("File tidak ditemukan di: " + filePath);
       }
       return response.text();
     })
-    .then(function (text) {
+    .then(text => {
 
       const lines = text.trim().split(/\r?\n/);
 
@@ -23,10 +24,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const profil = {};
 
-      headers.forEach(function (header, index) {
-        profil[header.trim()] = values[index]
-          ? values[index].trim()
-          : "-";
+      headers.forEach((h, i) => {
+        profil[h.trim()] = values[i] ? values[i].trim() : "-";
       });
 
       setText("namaSekolah", profil.nama_sekolah);
@@ -39,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
       setText("tujuanSekolah", profil.tujuan);
 
     })
-    .catch(function (error) {
+    .catch(error => {
       console.error("Error Profil:", error.message);
     });
 
@@ -47,7 +46,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function setText(id, value) {
   const el = document.getElementById(id);
-  if (el) {
-    el.textContent = value || "-";
-  }
+  if (el) el.textContent = value || "-";
 }
