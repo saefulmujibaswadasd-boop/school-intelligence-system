@@ -45,7 +45,12 @@
   <button onclick="generateRekomendasi()">Generate Rekomendasi</button>
 
   <hr>
-
+<label>Model Bahasa Rekomendasi:</label>
+<select id="modeBahasa">
+  <option value="pendek">Pendek</option>
+  <option value="mendalam">Mendalam</option>
+  <option value="akademik">Akademik + Data</option>
+</select>
   <h3>Hasil</h3>
   <p>Total Skor: <span id="totalSkor">0</span></p>
   <p>Rata-rata: <span id="rerataSkor">0</span></p>
@@ -66,3 +71,4 @@
 
 </body>
 </html>
+
