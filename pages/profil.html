@@ -2,66 +2,134 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profil Sekolah - SIS 2026</title>
+
+  <title>Profil Sekolah | SIS 2026</title>
+  <meta name="description" content="Profil resmi sekolah dalam sistem SIS 2026 - School Intelligence System berbasis data.">
+  <meta name="author" content="SIS 2026">
+
+  <!-- Google Font Modern -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Main CSS -->
   <link rel="stylesheet" href="../assets/css/style.css">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .page-header {
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    .page-header h1 {
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .page-header p {
+      opacity: 0.7;
+      font-size: 14px;
+    }
+
+    .card h2 i {
+      margin-right: 8px;
+      color: #1e88e5;
+    }
+
+    .loading-text {
+      opacity: 0.5;
+      font-style: italic;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      font-size: 13px;
+      opacity: 0.6;
+    }
+  </style>
 </head>
 
 <body>
 
   <!-- HEADER -->
-  <header>
-    <h1>🏫 Profil Sekolah</h1>
+  <header class="page-header">
+    <h1><i class="fa-solid fa-school"></i> Profil Sekolah</h1>
     <p>School Intelligence System 2026</p>
   </header>
 
   <!-- NAVIGATION -->
   <nav>
-    <a href="../index.html">Dashboard</a>
-    <a href="teachers.html">Data Guru</a>
-    <a href="students.html">Data Siswa</a>
-    <a href="supervisi.html">e-Supervisi</a>
-    <a href="monitoring.html">Monitoring</a>
+    <a href="../index.html"><i class="fa-solid fa-chart-line"></i> Dashboard</a>
+    <a href="teachers.html"><i class="fa-solid fa-chalkboard-user"></i> Data Guru</a>
+    <a href="students.html"><i class="fa-solid fa-user-graduate"></i> Data Siswa</a>
+    <a href="supervisi.html"><i class="fa-solid fa-clipboard-check"></i> e-Supervisi</a>
+    <a href="monitoring.html"><i class="fa-solid fa-chart-pie"></i> Monitoring</a>
   </nav>
 
   <!-- MAIN -->
   <main>
-
     <div class="dashboard-grid">
 
-      <div class="card grid-full">
-        <h2>Informasi Sekolah</h2>
+      <!-- INFORMASI SEKOLAH -->
+      <section class="card grid-full">
+        <h2><i class="fa-solid fa-circle-info"></i> Informasi Sekolah</h2>
 
-        <p><strong>Nama Sekolah:</strong> <span id="namaSekolah">Loading...</span></p>
-        <p><strong>Alamat:</strong> <span id="alamatSekolah">Loading...</span></p>
-        <p><strong>Kepala Sekolah:</strong> <span id="kepalaSekolah">Loading...</span></p>
-        <p><strong>NPSN:</strong> <span id="npsnSekolah">Loading...</span></p>
-        <p><strong>Akreditasi:</strong> <span id="akreditasiSekolah">Loading...</span></p>
+        <p><strong>Nama Sekolah:</strong> 
+          <span id="namaSekolah" class="loading-text">Memuat data...</span>
+        </p>
 
-      </div>
+        <p><strong>Alamat:</strong> 
+          <span id="alamatSekolah" class="loading-text">Memuat data...</span>
+        </p>
 
-      <div class="card">
-        <h2>Visi</h2>
-        <p id="visiSekolah">Loading...</p>
-      </div>
+        <p><strong>Kepala Sekolah:</strong> 
+          <span id="kepalaSekolah" class="loading-text">Memuat data...</span>
+        </p>
 
-      <div class="card">
-        <h2>Misi</h2>
-        <p id="misiSekolah">Loading...</p>
-      </div>
+        <p><strong>NPSN:</strong> 
+          <span id="npsnSekolah" class="loading-text">Memuat data...</span>
+        </p>
 
-      <div class="card grid-full">
-        <h2>Tujuan Sekolah</h2>
-        <p id="tujuanSekolah">Loading...</p>
-      </div>
+        <p><strong>Akreditasi:</strong> 
+          <span id="akreditasiSekolah" class="loading-text">Memuat data...</span>
+        </p>
+      </section>
+
+      <!-- VISI -->
+      <section class="card">
+        <h2><i class="fa-solid fa-eye"></i> Visi</h2>
+        <p id="visiSekolah" class="loading-text">Memuat data...</p>
+      </section>
+
+      <!-- MISI -->
+      <section class="card">
+        <h2><i class="fa-solid fa-bullseye"></i> Misi</h2>
+        <p id="misiSekolah" class="loading-text">Memuat data...</p>
+      </section>
+
+      <!-- TUJUAN -->
+      <section class="card grid-full">
+        <h2><i class="fa-solid fa-flag-checkered"></i> Tujuan Sekolah</h2>
+        <p id="tujuanSekolah" class="loading-text">Memuat data...</p>
+      </section>
 
     </div>
-
   </main>
 
   <!-- FOOTER -->
   <footer>
-    © 2026 SD Negeri Wonokerto — SIS 2026
+    © 2026 SD Negeri Wonokerto — SIS 2026  
+    <br>
+    <small>School Intelligence System | Data Driven School Management</small>
   </footer>
 
   <!-- SCRIPT -->
