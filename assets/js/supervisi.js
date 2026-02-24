@@ -105,26 +105,32 @@ function generateCatatan(){
 
 function generateRekomendasi(){
   const skorInputs = document.querySelectorAll(".skorInput");
+
+  if(skorInputs.length === 0){
+    alert("Indikator belum dimuat.");
+    return;
+  }
+
   let skorArray = [];
 
   skorInputs.forEach((s,i)=>{
     skorArray.push({
-      indikator: indikatorList[i].indikator,
+      indikator: indikatorList[i]?.indikator || "Indikator tidak diketahui",
       skor: parseInt(s.value)
     });
   });
 
+  // Urutkan dari skor terendah
   skorArray.sort((a,b)=>a.skor-b.skor);
 
   const terendah = skorArray.slice(0,3);
 
-  let rekom = "Fokus perbaikan pada:\n";
+  let rekom = "Fokus perbaikan pada:\n\n";
 
   terendah.forEach(t=>{
-    rekom += "- " + t.indikator + "\n";
+    rekom += "- " + t.indikator + " (Skor: " + t.skor + ")\n";
   });
 
   document.getElementById("rekomendasiOutput").value = rekom;
-};
-
+}
 
