@@ -58,11 +58,16 @@
     <h3>Indikator Penilaian</h3>
     <div id="indikatorContainer"></div>
 
+    <!-- ===================== -->
+    <!-- TOMBOL AKSI -->
+    <!-- ===================== -->
+
     <div class="button-group">
       <button type="button" onclick="hitungSkor()">Hitung Nilai</button>
       <button type="button" onclick="generateCatatan()">Generate Catatan</button>
       <button type="button" onclick="generateRekomendasi()">Generate Rekomendasi</button>
       <button type="button" onclick="simpanHasil()">Simpan</button>
+      <button type="button" onclick="exportPDF()">Export PDF</button>
     </div>
 
     <hr>
@@ -122,6 +127,10 @@
 <!-- SCRIPT -->
 <!-- ===================== -->
 
+<!-- jsPDF CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<!-- Config & Logic -->
 <script src="../assets/js/config.js"></script>
 <script src="../assets/js/supervisi.js"></script>
 
