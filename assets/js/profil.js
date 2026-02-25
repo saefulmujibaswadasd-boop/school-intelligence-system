@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  // Ganti dengan raw GitHub URL atau Google Drive CSV publik
-  const filePath = "../assets/data/profil.csv";
+  // Ganti filePath dengan link publik Google Sheets
+  const filePath = "https://docs.google.com/spreadsheets/d/e/YOUR_PUBLIC_ID/pub?output=tsv";
 
   const container = document.querySelector(".sis-container");
   const spinner = document.getElementById("spinner");
@@ -13,18 +13,17 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .then(text => {
 
-      // Hilangkan spinner
       if (spinner) spinner.remove();
 
       const lines = text.trim().split(/\r?\n/);
-      if (lines.length < 2) throw new Error("CSV tidak valid");
+      if (lines.length < 2) throw new Error("Sheet kosong atau tidak valid");
 
-      const headers = lines[0].split(",");
+      const headers = lines[0].split("\t"); // TSV
 
       lines.slice(1).forEach(line => {
-        if (!line.trim()) return; // abaikan baris kosong
+        if (!line.trim()) return;
 
-        const values = line.split(",");
+        const values = line.split("\t");
         const profil = {};
         headers.forEach((h, i) => profil[h.trim()] = values[i] ? values[i].trim() : "");
 
@@ -45,6 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ${profil.tujuan ? `<h3>Tujuan</h3><p>${profil.tujuan}</p>` : ""}
           </div>
         `;
+
         container.appendChild(card);
       });
 
