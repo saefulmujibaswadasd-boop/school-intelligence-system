@@ -5,23 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Profil Sekolah | SIS 2026</title>
 
-<!-- CSS relatif dari /pages -->
 <link rel="stylesheet" href="../assets/css/style.css">
 
-<!-- Optional: Simple inline style untuk card, bisa dipindah ke style.css -->
 <style>
-.sis-container { max-width: 800px; margin: 20px auto; }
-.sis-card { background: #fff; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-bottom: 20px; padding: 20px; }
+/* Inline style tambahan, bisa pindah ke style.css */
+.sis-container { max-width: 900px; margin: 20px auto; padding: 0 10px; }
+.sis-card { background: #fff; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); margin-bottom: 20px; padding: 20px; transition: transform 0.2s; }
+.sis-card:hover { transform: translateY(-3px); }
 .sis-card__header h2 { margin-top: 0; color: #2c3e50; }
-.sis-card__body div, .sis-card__body p { margin: 5px 0; }
+.sis-card__body div, .sis-card__body p { margin: 5px 0; line-height: 1.5; }
 .sis-card__body h3 { margin: 10px 0 5px; color: #34495e; }
+#spinner { text-align: center; margin: 30px 0; }
+.spinner-circle { width: 40px; height: 40px; border: 4px solid #ddd; border-top: 4px solid #3498db; border-radius: 50%; animation: spin 1s linear infinite; margin: auto; }
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 </style>
 </head>
 <body>
 
 <header class="sis-header">
   <div class="sis-header__container">
-    <img src="../assets/img/logo_sekolah.png" alt="Logo Sekolah" class="sis-header__logo" style="height:50px;">
+    <img src="../assets/img/logo_sekolah.png" alt="Logo Sekolah" style="height:50px;">
     <div class="sis-header__title">
       <h1>School Intelligence System</h1>
       <p>Profil Sekolah</p>
@@ -30,15 +33,17 @@
 </header>
 
 <main class="sis-container">
-  <!-- Card sekolah akan otomatis ditambahkan oleh JS -->
-  <p id="loadingText">Memuat data profil sekolah...</p>
+  <div id="spinner">
+    <div class="spinner-circle"></div>
+    <p>Memuat data profil sekolah...</p>
+  </div>
+  <!-- Card sekolah akan ditambahkan oleh JS -->
 </main>
 
 <footer class="sis-footer" style="text-align:center; margin:20px 0; color:#888;">
   <p>© 2026 School Intelligence System · Sistem Informasi Manajemen Sekolah Terintegrasi</p>
 </footer>
 
-<!-- JS relatif dari /pages -->
 <script src="../assets/js/profil.js"></script>
 </body>
 </html>
