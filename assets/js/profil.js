@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  // Ganti filePath dengan link publik Google Sheets
+  // 🔹 Ganti link ini dengan Google Sheets "Publish to Web" TSV URL
   const filePath = "https://docs.google.com/spreadsheets/d/e/YOUR_PUBLIC_ID/pub?output=tsv";
 
   const container = document.querySelector(".sis-container");
@@ -8,25 +8,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
   fetch(filePath)
     .then(res => {
-      if (!res.ok) throw new Error("File tidak ditemukan: " + filePath);
+      if (!res.ok) throw new Error("File tidak dapat diakses: " + filePath);
       return res.text();
     })
     .then(text => {
-
       if (spinner) spinner.remove();
 
       const lines = text.trim().split(/\r?\n/);
       if (lines.length < 2) throw new Error("Sheet kosong atau tidak valid");
 
-      const headers = lines[0].split("\t"); // TSV
+      const headers = lines[0].split("\t");
 
       lines.slice(1).forEach(line => {
         if (!line.trim()) return;
 
         const values = line.split("\t");
         const profil = {};
-        headers.forEach((h, i) => profil[h.trim()] = values[i] ? values[i].trim() : "");
+        headers.forEach((h,i) => profil[h.trim()] = values[i] ? values[i].trim() : "");
 
+        // Buat card per sekolah
         const card = document.createElement("section");
         card.className = "sis-card";
 
@@ -44,7 +44,6 @@ document.addEventListener("DOMContentLoaded", () => {
             ${profil.tujuan ? `<h3>Tujuan</h3><p>${profil.tujuan}</p>` : ""}
           </div>
         `;
-
         container.appendChild(card);
       });
 
