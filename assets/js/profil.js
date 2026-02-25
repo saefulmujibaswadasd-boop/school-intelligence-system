@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   // 🔹 Ganti dengan Google Sheets "Publish to Web" TSV URL
-  const filePath = "https://docs.google.com/spreadsheets/d/e/PASTE_PUBLIC_TSV_LINK/pub?output=tsv";
+  const filePath = "https://docs.google.com/spreadsheets/d/e/2PACX-1vT9OQNRFI0EfoDwzWlypwGlmsczVasRRYb8vpoCgVpou6hnZj8aiZhyqwGo4ip-mS9ob9UoxmdAMSfn/pub?output=csv";
 
   const container = document.querySelector(".sis-container");
   const spinner = document.getElementById("spinner");
@@ -55,3 +55,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+
