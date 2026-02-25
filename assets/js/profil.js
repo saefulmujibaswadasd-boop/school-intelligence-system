@@ -1,6 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  const filePath = "../assets/data/profil.csv"; // path relatif dari /pages/profil.html
+  // Ganti dengan raw GitHub URL atau Google Drive CSV publik
+  const filePath = "../assets/data/profil.csv";
+
+  const container = document.querySelector(".sis-container");
+  const spinner = document.getElementById("spinner");
 
   fetch(filePath)
     .then(res => {
@@ -9,13 +13,13 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .then(text => {
 
+      // Hilangkan spinner
+      if (spinner) spinner.remove();
+
       const lines = text.trim().split(/\r?\n/);
       if (lines.length < 2) throw new Error("CSV tidak valid");
 
       const headers = lines[0].split(",");
-
-      const container = document.querySelector(".sis-container");
-      container.innerHTML = ""; // Kosongkan dulu
 
       lines.slice(1).forEach(line => {
         if (!line.trim()) return; // abaikan baris kosong
@@ -24,7 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const profil = {};
         headers.forEach((h, i) => profil[h.trim()] = values[i] ? values[i].trim() : "");
 
-        // Buat card baru per sekolah
         const card = document.createElement("section");
         card.className = "sis-card";
 
@@ -46,6 +49,10 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
     })
-    .catch(err => console.error("Error Profil:", err.message));
+    .catch(err => {
+      if (spinner) spinner.remove();
+      container.innerHTML = `<p style="color:red; text-align:center;">Gagal memuat data: ${err.message}</p>`;
+      console.error("Error Profil:", err.message);
+    });
 
 });
