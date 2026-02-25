@@ -8,14 +8,16 @@
 <link rel="stylesheet" href="../assets/css/style.css">
 
 <style>
-/* Inline style tambahan, bisa pindah ke style.css */
+/* Card dan layout modern */
 .sis-container { max-width: 900px; margin: 20px auto; padding: 0 10px; }
 .sis-card { background: #fff; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); margin-bottom: 20px; padding: 20px; transition: transform 0.2s; }
 .sis-card:hover { transform: translateY(-3px); }
 .sis-card__header h2 { margin-top: 0; color: #2c3e50; }
 .sis-card__body div, .sis-card__body p { margin: 5px 0; line-height: 1.5; }
 .sis-card__body h3 { margin: 10px 0 5px; color: #34495e; }
-#spinner { text-align: center; margin: 30px 0; }
+
+/* Loading spinner */
+#spinner { text-align:center; margin: 30px 0; }
 .spinner-circle { width: 40px; height: 40px; border: 4px solid #ddd; border-top: 4px solid #3498db; border-radius: 50%; animation: spin 1s linear infinite; margin: auto; }
 @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 </style>
@@ -33,11 +35,11 @@
 </header>
 
 <main class="sis-container">
+  <!-- Spinner muncul sebelum data -->
   <div id="spinner">
     <div class="spinner-circle"></div>
     <p>Memuat data profil sekolah...</p>
   </div>
-  <!-- Card sekolah akan ditambahkan oleh JS -->
 </main>
 
 <footer class="sis-footer" style="text-align:center; margin:20px 0; color:#888;">
